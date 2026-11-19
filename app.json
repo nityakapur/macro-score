@@ -39,6 +39,13 @@
     "experiments": {
       "typedRoutes": true,
       "reactCompiler": true
-    }
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "0672e9a3-675a-48c4-9280-b45a6681992d"
+      }
+    },
+    "owner": "studiolearn"
   }
 }
