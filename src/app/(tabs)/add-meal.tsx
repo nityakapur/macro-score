@@ -1,12 +1,16 @@
 import { useState } from 'react';
+import { colors, globalStyles } from '@/styles/global';
+import { addMeal } from '@/storage/meals';
+import { router } from 'expo-router';
 import {
+    Alert,
+    Platform,
     StyleSheet,
     Text,
     TextInput,
     TouchableOpacity,
     View,
 } from 'react-native';
-import { colors, globalStyles } from '@/styles/global';
 
 export default function AddMealScreen() {
     const [name, setName] = useState('');
@@ -15,13 +19,37 @@ export default function AddMealScreen() {
     const [carbs, setCarbs] = useState('');
     const [fat, setFat] = useState('');
 
-    const handleAddMeal = () => {
-        console.log({ name, calories, protein, carbs, fat });
+    const handleAddMeal = async () => {
+        if (!name || !calories) {
+            if (Platform.OS === 'web') window.alert('Please enter a meal name and calories.');
+            else Alert.alert('Error', 'Please enter a meal name and calories.');
+            return;
+        }
+
+        await addMeal({
+            name,
+            calories: Number(calories),
+            protein: Number(protein) || 0,
+            carbs: Number(carbs) || 0,
+            fat: Number(fat) || 0,
+        });
+
+        setName('');
+        setCalories('');
+        setProtein('');
+        setCarbs('');
+        setFat('');
+
+        if (Platform.OS === 'web') window.alert('Meal added successfully!');
+        else Alert.alert('Success', 'Meal added successfully!');
+
+        router.push('/');
     };
 
     return (
         <View style={globalStyles.container}>
             <Text style={globalStyles.title}>Add Meal</Text>
+            <Text style={{ color: colors.textSecondary, marginBottom: 8 }}>A yummy moment worth tracking ✨</Text>
 
             <TextInput
                 style={styles.input}
@@ -79,7 +107,9 @@ const styles = StyleSheet.create({
         backgroundColor: colors.surface,
         color: colors.text,
         padding: 16,
-        borderRadius: 10,
+        borderRadius: 16,
+        borderWidth: 1,
+        borderColor: colors.border,
         fontSize: 16,
         marginTop: 16,
     },
@@ -95,13 +125,18 @@ const styles = StyleSheet.create({
     },
     button: {
         backgroundColor: colors.primary,
-        padding: 16,
-        borderRadius: 10,
+        padding: 17,
+        borderRadius: 16,
         alignItems: 'center',
         marginTop: 24,
+        shadowColor: colors.primary,
+        shadowOpacity: 0.24,
+        shadowRadius: 10,
+        shadowOffset: { width: 0, height: 5 },
+        elevation: 3,
     },
     buttonText: {
-        color: colors.background,
+        color: '#FFFFFF',
         fontSize: 16,
         fontWeight: 'bold',
     },

@@ -1,11 +1,11 @@
 {
   "expo": {
-    "name": "macro-score",
-    "slug": "macro-score",
+    "name": "MacroMuse",
+    "slug": "macro-muse",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
-    "scheme": "macroscore",
+    "scheme": "macromuse",
     "userInterfaceStyle": "automatic",
     "ios": {
       "icon": "./assets/expo.icon"

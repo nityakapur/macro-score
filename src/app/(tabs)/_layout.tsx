@@ -8,8 +8,11 @@ export default function TabLayout() {
             screenOptions={{
                 headerShown: false,
                 tabBarStyle: {
-                    backgroundColor: colors.background,
-                    borderTopColor: colors.surface,
+                    backgroundColor: colors.surface,
+                    borderTopColor: colors.border,
+                    height: 82,
+                    paddingTop: 8,
+                    paddingBottom: 12,
                 },
                 tabBarActiveTintColor: colors.primary,
                 tabBarInactiveTintColor: colors.textSecondary,
@@ -20,7 +23,7 @@ export default function TabLayout() {
                 options={{
                     title: 'Home',
                     tabBarIcon: ({ color, size }) => (
-                        <Ionicons name='home' size={size} color={color} />
+                        <Ionicons name='heart' size={size} color={color} />
                     ),
                 }}
             />
@@ -30,6 +33,15 @@ export default function TabLayout() {
                     title: 'Add Meal',
                     tabBarIcon: ({ color, size }) => (
                         <Ionicons name='add-circle' size={size} color={color} />
+                    ),
+                }}
+            />
+            <Tabs.Screen
+                name='history'
+                options={{
+                    title: 'History',
+                    tabBarIcon: ({ color, size }) => (
+                        <Ionicons name='calendar-outline' size={size} color={color} />
                     ),
                 }}
             />
