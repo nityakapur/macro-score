@@ -1,6 +1,13 @@
 # MacroMuse ✨
 
 MacroMuse is a cross-platform Expo/React Native macro-tracking app with a soft pink, girly visual style. It supports logging meals, viewing daily totals, setting personal targets, deleting or clearing meals, and reviewing planned-versus-achieved totals over the latest seven completed days.
+<table>
+  <tr>
+    <td align="center"><img src="./ui-pics/img.png" width="220" alt="MacroMuse screenshot 1"></td>
+    <td align="center"><img src="./ui-pics/img_1.png" width="220" alt="MacroMuse screenshot 2"></td>
+    <td align="center"><img src="./ui-pics/img_2.png" width="220" alt="MacroMuse screenshot 3"></td>
+  </tr>
+</table>
 
 ## Features
 
