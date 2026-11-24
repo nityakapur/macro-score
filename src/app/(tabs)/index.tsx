@@ -7,6 +7,9 @@ import { colors, globalStyles } from '@/styles/global';
 import { useFocusEffect } from 'expo-router';
 import { rollOverDay } from '@/storage/history';
 import { useCallback, useEffect, useState } from 'react';
+import ShareButton from '@/components/ShareButton';
+import CopyButton from '@/components/CopyButton';
+import ReminderToggle from '@/components/ReminderToggle';
 import { Alert, Modal, Platform, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 
 export default function HomeScreen() {
@@ -83,9 +86,12 @@ export default function HomeScreen() {
                 <TouchableOpacity style={styles.goalButton} onPress={openGoalModal} activeOpacity={0.8}>
                     <Text style={styles.goalButtonText}>Targets 🎀</Text>
                 </TouchableOpacity>
+                <ShareButton meals={meals} />
             </View>
             <HomeHeader />
             <MacroGrid meals={meals} goals={goals} />
+            <CopyButton meals={meals} />
+            <ReminderToggle />
             <RecentMeals meals={meals} onDelete={loadMeals} />
 
             <Modal

@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { colors, globalStyles } from '@/styles/global';
 import { addMeal } from '@/storage/meals';
 import { router } from 'expo-router';
+import * as Haptics from 'expo-haptics';
 import {
     Alert,
     Platform,
@@ -23,6 +24,7 @@ export default function AddMealScreen() {
         if (!name || !calories) {
             if (Platform.OS === 'web') window.alert('Please enter a meal name and calories.');
             else Alert.alert('Error', 'Please enter a meal name and calories.');
+            await Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success);
             return;
         }
 

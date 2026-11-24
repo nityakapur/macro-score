@@ -1,6 +1,7 @@
 import { Alert, Platform, StyleSheet, Text, TouchableOpacity } from 'react-native';
 import { deleteMeal } from '@/storage/meals';
 import { colors } from '@/styles/global';
+import * as Haptics from 'expo-haptics';
 
 type MealItemProps = {
     id: string;
@@ -42,6 +43,7 @@ export default function MealItem({
                 onPress: () => void confirmDelete(),
             },
         ]);
+        Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success).then(r => console.log(r));
     };
 
     return (
