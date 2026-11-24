@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "MacroMuse",
-    "slug": "macro-muse",
+    "slug": "macro-score",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
@@ -17,7 +17,8 @@
         "backgroundImage": "./assets/images/android-icon-background.png",
         "monochromeImage": "./assets/images/android-icon-monochrome.png"
       },
-      "predictiveBackGestureEnabled": false
+      "predictiveBackGestureEnabled": false,
+      "package": "com.studiolearn.macroscore"
     },
     "web": {
       "output": "static",
